@@ -32,3 +32,13 @@ x = etree.HTML(str(soup))
 # posteriormente a la etiqueta a y luego tome el atributo href
 href_list = x.xpath('//td[@class="celda-tabla_docs"]/a/@href')
 ```
+
+### Tercer paso, recorrer la lista href
+```python
+# El paso anterior nos devuelve un listado, ahora podemos buscar el archivo
+# xlsx en todos los atributos de href
+xlsx_list = [i for i in href_list if '.xlsx' in i]
+# le hacemos un print para que nos muestre que encontro
+link = 'https://www.dane.gov.co'+xlsx_list[0]
+print(link)
+```
